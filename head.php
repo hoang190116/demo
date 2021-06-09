@@ -287,7 +287,7 @@ audio:focus {outline: none;}
 
 <div class="navbar">
 
-  <a href="index.php" style="text-decoration: none; color: white; font-family: cursive; margin-left: 10px; font-size: 30px; float: left; padding: 14px 16px;">ThuanLV</a>
+  <a href="index.php" style="text-decoration: none; color: white; font-family: cursive; margin-left: 10px; font-size: 30px; float: left; padding: 14px 16px;">Music</a>
 
   <div class="dropdown">
     <button class="dropbtn"> 
