@@ -1,0 +1,25 @@
+For Database, Use Microsoft SQL Manager Studio 18 -> Create a new databse with name "g3shop"
+-> then go to File at navbar -> open -> File -> Choose G3scriptUpdateFinale.sql -> Run file (or user Execute button at navbar)
+
+Remmember to open account "sa" of your database server - set Username=sa and Password=sa
+Remmember to open port 1433 from "SQL 2019 Configuration Manager" tool, go there and enable anything from Client Proctocols -> then restart your SQL server(MSSQL...) at SQL Server Services tab
+
+
+===========================================================
+For Code,
+First Remmber to install Apache Tomcat 9
+Remmember to install JDK 8
+
+Cut the "img" folder to your apache/bin -> for it is: "D:\Tomcat\apache-tomcat-9.0.54\bin", paste this img folder in folder bin here
+
+Open Netbean 12 -> Open Project -> choose g3shop -> Right Click on project and choo Clean and Build
+If you dont have apache server already yet -> system will need you choose it. Go window in navbar -> choose services -> click services tab -> right click on Server then add server for apache
+
+After finish build -> Right click on Project -> Choose Properties -> Choose Run -> then select your browser to run website
+
+Now Right click on project and Run it.
+
+In some way still error maybe project cannot link jdk 8. So you choo Properties again -> Tab build - Complie -> Java Paltform -> Select JDK8 or Click Manage Java Platforms if you dont link folder jdk have installed yet
+
+======================
+Good Luck
