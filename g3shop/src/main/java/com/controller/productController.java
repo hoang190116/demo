@@ -244,6 +244,8 @@ public class productController {
                 model.addObject("numberCart", cartD.getCountCart(a.getId()));
                 model.addObject("productQuantity", product.getQuantityOfaProduct(id, a.getId()));
                 product.updateView(id);
+            }else{
+                model.addObject("productQuantity", product.getQuantityOfaProduct(id, 0));
             }
             
             Product p = product.get(id);

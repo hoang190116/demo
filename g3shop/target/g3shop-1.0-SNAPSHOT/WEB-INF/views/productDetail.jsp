@@ -1,5 +1,5 @@
 <%@include file="include/navbar.jsp" %>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container">
     <div class="card">
         <div class="container-fliud">
@@ -112,8 +112,9 @@
                         {
                                     $('#edit_data').on('click', function () {
                             var idP = $('#idP').val();
+                            var number = ${productQuantity};
                             if (idP){
-                                var number = ${productQuantity};
+                             
                             $.ajax({
                             data:{idP:idP, number:number},
                                     type:"POST",

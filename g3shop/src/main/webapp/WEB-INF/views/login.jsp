@@ -73,7 +73,7 @@
                   </div>
                   <div class="form-check d-flex justify-content-center mb-5">
                     <label class="form-check-label" for="form2Example3">
-                      Not a member? <a href="registerForm">Register</a><br>
+                      Not a member? <a href="${pageContext.request.contextPath }/registerForm">Register</a><br>
                       <a href="${pageContext.request.contextPath }/index" style="padding-left: 50px">Go Back</a>
                     </label>
                   </div>

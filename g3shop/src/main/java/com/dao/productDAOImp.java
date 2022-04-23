@@ -407,11 +407,12 @@ public class productDAOImp implements productDAO {
     @Override
     public Integer getQuantityOfaProduct(int id, int a_id) {
         String sql = "select quantity from cart_detail inner join cart_account on cart_account.cart_id = cart_detail.cart_id where account_id="+a_id+" and product_id="+id;
-        Integer temp = 0;
+        int temp = 0;
         try {
-            return temp = jt.queryForObject(sql, new Object[]{}, int.class);
-        } catch (Exception e) {
+            temp = jt.queryForObject(sql, new Object[]{}, int.class);
             return temp;
+        } catch (Exception e) {
+            return 0;
         }
     }
 }

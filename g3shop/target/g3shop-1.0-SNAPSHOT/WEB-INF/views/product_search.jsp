@@ -3,6 +3,8 @@
 <section style="background-color: #eee;">
     <div class="container py-4">
         <div class="row">
+            <c:if test="${productList.isEmpty()}"><h3 align="center">No Product</h3></c:if>
+            <c:if test="${!productList.isEmpty()}">
             <c:forEach items="${productList}" var="p">
                 <div class="col-md-12 col-lg-3 mb-2 mb-lg-0">
                     <div class="card">
@@ -57,6 +59,7 @@
                 </ul>
             </nav>
         </div>
+                </c:if>
     </div>
 
 </section>
