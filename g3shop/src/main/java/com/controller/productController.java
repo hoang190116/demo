@@ -15,6 +15,7 @@ import com.model.comment;
 import com.model.genre;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -174,7 +175,7 @@ public class productController {
     }
     //==========================================================================PageView - Pagination
     @RequestMapping(value="/view/{pageid}")    
-    public ModelAndView viewP(@PathVariable Integer pageid,ModelAndView m, HttpServletRequest rq){
+    public ModelAndView viewP(@PathVariable Integer pageid,ModelAndView m, HttpServletRequest rq) throws UnsupportedEncodingException{
         if(pageid>0 && pageid != null){
             int total=8;
             int currentP = 1;
@@ -203,7 +204,7 @@ public class productController {
     }
     //==========================================================================View2 for hot list
     @RequestMapping(value="/view2/{pageid}")    
-    public ModelAndView view2p(@PathVariable Integer pageid,ModelAndView m, HttpServletRequest rq){
+    public ModelAndView view2p(@PathVariable Integer pageid,ModelAndView m, HttpServletRequest rq) throws UnsupportedEncodingException{
         if(pageid>0 && pageid != null){
             int total=8;
             int currentP = 1;

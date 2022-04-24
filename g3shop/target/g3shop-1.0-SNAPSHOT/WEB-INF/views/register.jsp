@@ -103,7 +103,6 @@
                                             data:{writePass:name},
                                             url:'passwordCheck',
                                             success:function(result){
-                                                console.log(result);
                                                 if(result == 1){
                                                     $('#result4').html("");
                                                     $('#result3').html("<span class='d-flex flex-row align-items-center mb-4'>Password must be atleast 8 character, and should contain special character, upercase and lowercase chacter, and number </span>");
@@ -118,6 +117,8 @@
                                             }
                                         });
                                     }else{
+                                        $('#result4').html("");
+                                        $('#result3').html("<span class='d-flex flex-row align-items-center mb-4'>Empty Password!!!</span>");
                                         deniButton();
                                         pass = false;
                                     }
@@ -130,7 +131,6 @@
                                             data:{writeName:name},
                                             url:'usernameCheck',
                                             success:function(result){
-                                                console.log(result);
                                                 if(result == 1){
                                                     $('#result2').html("");
                                                     $('#result').html("<span class='d-flex flex-row align-items-center mb-4'>This User Name Already Existed!!!</span>");
@@ -146,6 +146,8 @@
                                         });
                                     }else{
                                         username = false;
+                                        $('#result2').html("");
+                                        $('#result').html("<span class='d-flex flex-row align-items-center mb-4'>Empty Username!</span>");
                                         deniButton();
                                     }
                                 }); 

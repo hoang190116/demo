@@ -24,10 +24,6 @@ public class account extends cart{
     public account() {
     }
     
-    public boolean login(String username, String pass){
-        return username.equalsIgnoreCase("abc") && pass.equalsIgnoreCase("123");
-    }
-    
     public Integer getId() {
         return id;
     }

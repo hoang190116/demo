@@ -9,6 +9,7 @@ import com.dao.accountDAO;
 import com.dao.billDAO;
 import com.model.account;
 import com.model.bill;
+import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class employeeController {
     private billDAO billDao;
     
     @RequestMapping(value="index", method = RequestMethod.GET)
-    public ModelAndView index(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView index(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){
@@ -53,7 +54,7 @@ public class employeeController {
         return model;
     }
     @RequestMapping(value="/receive", method = RequestMethod.GET)
-    public ModelAndView receive(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView receive(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){
@@ -76,7 +77,7 @@ public class employeeController {
         return model;
     }
     @RequestMapping(value="orderProcess", method = RequestMethod.GET)
-    public ModelAndView orderProcess(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView orderProcess(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){
@@ -96,7 +97,7 @@ public class employeeController {
         return model;
     }
     @RequestMapping(value="updateOrder", method = RequestMethod.GET)
-    public ModelAndView orderUpdate(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView orderUpdate(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){
@@ -126,7 +127,7 @@ public class employeeController {
         return model;
     }
     @RequestMapping(value="/saveOrder", method = RequestMethod.POST)
-    public ModelAndView orderSave(HttpServletRequest rq, @ModelAttribute bill b) {
+    public ModelAndView orderSave(HttpServletRequest rq, @ModelAttribute bill b) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         ModelAndView model = new ModelAndView(); 
@@ -146,7 +147,7 @@ public class employeeController {
         return model;
     }
     @RequestMapping(value="deliver", method = RequestMethod.GET)
-    public ModelAndView orderDeliver(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView orderDeliver(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){
@@ -166,7 +167,7 @@ public class employeeController {
         return model;
     }
     @RequestMapping(value="history", method = RequestMethod.GET)
-    public ModelAndView orderHistory(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView orderHistory(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){
@@ -186,7 +187,7 @@ public class employeeController {
         return model;
     }
     @RequestMapping(value="orderDetail", method = RequestMethod.GET)
-    public ModelAndView orderDetail(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView orderDetail(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){

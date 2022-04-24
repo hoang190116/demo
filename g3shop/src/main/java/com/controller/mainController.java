@@ -11,6 +11,7 @@ import com.dao.productDAO;
 import com.model.Product;
 import com.model.account;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -47,7 +48,7 @@ public class mainController {
     //index page
     
     @RequestMapping(value="/index",method = RequestMethod.GET)
-    public ModelAndView index2(HttpServletRequest request) {
+    public ModelAndView index2(HttpServletRequest request) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         ModelAndView model = new ModelAndView();
         model=loginC.checkLogin(request, model);

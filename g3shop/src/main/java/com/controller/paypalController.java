@@ -19,6 +19,7 @@ import com.paypal.base.rest.PayPalRESTException;
 import com.paypal.orderDetail;
 import com.paypal.paymentSerices;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.Normalizer;
 import java.text.ParseException;
@@ -48,7 +49,7 @@ public class paypalController {
     private billDAO billDao;
     
     @RequestMapping("/paypal")
-    public ModelAndView paypal(HttpServletRequest rq){
+    public ModelAndView paypal(HttpServletRequest rq) throws UnsupportedEncodingException{
         loginController loginC = new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){

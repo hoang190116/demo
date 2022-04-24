@@ -142,7 +142,7 @@ public class loginController {
                 response.getWriter().println(0);
             }
         }else{
-            response.getWriter().println(0);
+            response.getWriter().println(1);
         }
     }
     @RequestMapping("/passwordCheck")
@@ -156,7 +156,7 @@ public class loginController {
                 response.getWriter().println(1);
             }
         }else{
-            response.getWriter().println(0);
+            response.getWriter().println(1);
         }
     }
     @RequestMapping(value = "register", method = RequestMethod.POST)

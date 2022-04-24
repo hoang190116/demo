@@ -15,6 +15,7 @@ import com.model.bill;
 import com.model.genre;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -56,7 +57,7 @@ public class adminController {
     private billDAO billDao;
     
     @RequestMapping(value="index", method = RequestMethod.GET)
-    public String index(HttpServletRequest rq) {
+    public String index(HttpServletRequest rq) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){
@@ -69,7 +70,7 @@ public class adminController {
     }
     
     @RequestMapping(value="product/{pageid}")    
-    public ModelAndView viewP(@PathVariable Integer pageid,ModelAndView m, HttpServletRequest rq){
+    public ModelAndView viewP(@PathVariable Integer pageid,ModelAndView m, HttpServletRequest rq) throws UnsupportedEncodingException{
         if(pageid>0 && pageid != null){
             loginController loginC=new loginController();
             account a = loginC.checkCookie(rq);
@@ -167,7 +168,7 @@ public class adminController {
     }
     
     @RequestMapping(value="addProduct", method = RequestMethod.GET)
-    public ModelAndView addProduct(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView addProduct(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){
@@ -407,7 +408,7 @@ public class adminController {
         return model;
     }
     @RequestMapping(value="user", method = RequestMethod.GET)
-    public ModelAndView user(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView user(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         loginController loginC=new loginController();
         account a = loginC.checkCookie(rq);
         if(a!=null){
@@ -435,7 +436,7 @@ public class adminController {
         return model;
     }
     @RequestMapping(value="user/{pageid}")    
-    public ModelAndView viewUser(@PathVariable Integer pageid,ModelAndView m, HttpServletRequest rq){
+    public ModelAndView viewUser(@PathVariable Integer pageid,ModelAndView m, HttpServletRequest rq) throws UnsupportedEncodingException{
         if(pageid>0 && pageid != null){
             loginController loginC=new loginController();
             account a = loginC.checkCookie(rq);
@@ -671,7 +672,7 @@ public class adminController {
         return model;
     }
     @RequestMapping(value="order/{pageid}")    
-    public ModelAndView viewOrder(@PathVariable Integer pageid, ModelAndView m, HttpServletRequest rq){
+    public ModelAndView viewOrder(@PathVariable Integer pageid, ModelAndView m, HttpServletRequest rq) throws UnsupportedEncodingException{
         if(pageid>0 && pageid != null){
             loginController loginC=new loginController();
             account a = loginC.checkCookie(rq);

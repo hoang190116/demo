@@ -41,10 +41,12 @@ public class accountDAOImp implements accountDAO{
     }
     @Override
     public int register(account a) {
-        System.out.println("======================= JOIN REGIS SQL");
-        System.out.println(a.getFname() +' '+a.getUname()+' '+a.getPass()+' '+a.getRole());
-        String sql = "insert into account(fullname, username, password, role) values(?,?,HASHBYTES('SHA1','"+a.getPass()+"'),?)";
-        return jt.update(sql, a.getFname(), a.getUname(), a.getRole());
+        if(!a.getUname().contains(" ") && !a.getPass().contains(" ")){
+            String sql = "insert into account(fullname, username, password, role) values(?,?,HASHBYTES('SHA1','"+a.getPass()+"'),?)";
+            return jt.update(sql, a.getFname(), a.getUname(), a.getRole());
+        }else{
+            return 0;
+        }
     }
     @Override
     public boolean getName(String name) {
@@ -154,6 +156,7 @@ public class accountDAOImp implements accountDAO{
     
     @Override
     public account login(account ac) {
+        if(!ac.getUname().contains(" ") && !ac.getPass().contains(" ")){
         String sql = "select * from account where username='"+ac.getUname()+"' and password=HASHBYTES('SHA1','"+ac.getPass()+"')";
         ResultSetExtractor<account> extrac = new ResultSetExtractor<account>() {
             public account extractData(ResultSet rs) throws SQLException {
@@ -172,7 +175,10 @@ public class accountDAOImp implements accountDAO{
                 return null;
             }
         };
-        return jt.query(sql, extrac);
+            return jt.query(sql, extrac);
+        }else{
+            return null;
+        }
     }
     @Override
     public Integer getCountAccountPage() {
