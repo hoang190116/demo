@@ -1,5 +1,5 @@
 For Database, Use Microsoft SQL Manager Studio 18 -> Create a new databse with name "g3shop"; Make sure you have Database Server already!! "And you should let Database Server name is ADMIN"
--> then go to File at navbar -> open -> File -> Choose G3scriptUpdateFinale.sql -> Run file (or use Execute button at navbar)
+-> then go to File at navbar -> open -> File -> Choose G3scriptUpdateFinale.sql -> Run file (F5) or use "Execute" button at navbar
 
 Remmember to open account "sa" of your database server - set Username=sa and Password=sa 
 (Manage account at "Security folder" of DB server -> Logins -> Right click on "sa" account -> Properties -> Change password to "sa" at general tab -> next go Status tab -> tick on "Enable" radio of Login -> Then OK)
