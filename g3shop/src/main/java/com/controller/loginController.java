@@ -131,9 +131,13 @@ public class loginController {
     @RequestMapping("/usernameCheck")
     @ResponseBody
     public void checkName(@RequestParam("writeName") String name, HttpServletResponse response) throws IOException{
-        boolean a = acc.getName(name);
-        if(a){
-            response.getWriter().println(1);
+        if(!name.contains(" ")){
+            boolean a = acc.getName(name);
+            if(a){
+                response.getWriter().println(1);
+            }else{
+                response.getWriter().println(0);
+            }
         }else{
             response.getWriter().println(0);
         }
@@ -141,11 +145,15 @@ public class loginController {
     @RequestMapping("/passwordCheck")
     @ResponseBody
     public void checkwordPass(@RequestParam("writePass") String pass, HttpServletResponse response) throws IOException{
-        boolean a = isValid(pass);
-        if(a){
-            response.getWriter().println(0);
+        if(!pass.contains(" ")){
+            boolean a = isValid(pass);
+            if(a){
+                response.getWriter().println(0);
+            }else{
+                response.getWriter().println(1);
+            }
         }else{
-            response.getWriter().println(1);
+            response.getWriter().println(0);
         }
     }
     @RequestMapping(value = "register", method = RequestMethod.POST)

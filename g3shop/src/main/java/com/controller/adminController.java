@@ -190,9 +190,13 @@ public class adminController {
     @RequestMapping("/pnameCheck")
     @ResponseBody
     public void checkName(@RequestParam("writeName") String name, HttpServletResponse response) throws IOException{
-        boolean a = product.selectProductName(name);
-        if(a){
-            response.getWriter().println(1);
+        if(!name.contains(" ")){
+            boolean a = product.selectProductName(name);
+            if(a){
+                response.getWriter().println(1);
+            }else{
+                response.getWriter().println(0);
+            }
         }else{
             response.getWriter().println(0);
         }

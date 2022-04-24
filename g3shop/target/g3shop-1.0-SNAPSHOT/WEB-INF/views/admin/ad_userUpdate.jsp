@@ -43,7 +43,7 @@ input[type=number] {
                         <div class="col-lg-6">
                             <div class="input-group input-group-outline">
                                 <label class="input-group" for="input-nameproduct">Username</label>
-                                <form:input path="uname" id="writeName" required="a" class="form-control rounded" maxlength="100" minlength="5"/>
+                                <form:input path="uname" id="writeName" required="a" class="form-control rounded" maxlength="100" minlength="5" onkeypress="return event.charCode != 32"/>
                             </div><span id="result2" style="color: green;" class=""></span>
                         <span id="result" style="color: red" class=""></span>
                         </div>
@@ -52,7 +52,7 @@ input[type=number] {
                         <div class="col-lg-6">
                             <div class="input-group input-group-outline">
                                 <label class="input-group" for="input-nameproduct"> Password</label>
-                                <form:input type="password" path="pass" id="writePass" placeholder="****************" class="form-control rounded" maxlength="100"/>
+                                <form:input type="password" path="pass" id="writePass" placeholder="****************" class="form-control rounded" maxlength="100" onkeypress="return event.charCode != 32"/>
                             </div><span id="result3" style="color: red" class=""></span>
                         <span id="result4" style="color: green;" class=""></span>
                         </div>

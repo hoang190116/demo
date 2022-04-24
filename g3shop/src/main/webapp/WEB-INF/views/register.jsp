@@ -52,7 +52,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <form:input path="uname" id="writeName" type="text" class="form-control" required="a" minlength="5" maxlength="40"/>
+                      <form:input path="uname" id="writeName" type="text" class="form-control" required="a" minlength="5" maxlength="40" onkeypress="return event.charCode != 32"/>
                       <label class="form-label" for="form3Example1c">User name</label>
                     </div>
                   </div>
@@ -60,7 +60,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <form:input path="pass" type="password" id="writePass" class="form-control" required="a" minlength="8"/>
+                      <form:input path="pass" type="password" id="writePass" class="form-control" required="a" minlength="8" onkeypress="return event.charCode != 32"/>
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
                   </div>

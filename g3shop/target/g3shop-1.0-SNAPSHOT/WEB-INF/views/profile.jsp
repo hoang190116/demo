@@ -40,12 +40,12 @@ input[type=number] {
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="userName">User Name</label>
-                                <form:input class="form-control" id="writeName" type="text" placeholder="Account user name" path="uname" required="a"/>
+                                <form:input class="form-control" id="writeName" type="text" placeholder="Account user name" path="uname" required="a" onkeypress="return event.charCode != 32"/>
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="userPass">Password</label>
-                                <form:input type="password" class="form-control" id="writePass" placeholder="**************" path="pass"/>
+                                <form:input type="password" class="form-control" id="writePass" placeholder="**************" path="pass" onkeypress="return event.charCode != 32"/>
                             </div>
                         </div>
                         <!-- Form Row        -->
