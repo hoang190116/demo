@@ -13,6 +13,9 @@ import com.model.Product;
 import com.model.account;
 import com.model.comment;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -72,7 +75,7 @@ public class loginController {
         return flag;
     }
     
-    public ModelAndView checkLogin(HttpServletRequest request, ModelAndView model){
+    public ModelAndView checkLogin(HttpServletRequest request, ModelAndView model) throws UnsupportedEncodingException{
         account a = checkCookie(request);
         boolean login = false;
         Integer num = 0;
@@ -95,7 +98,7 @@ public class loginController {
     }
     
     @RequestMapping("/loginForm")
-    public ModelAndView loginForm(HttpServletRequest rq, ModelAndView model) {
+    public ModelAndView loginForm(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException {
         account a = checkCookie(rq);
         if(a != null){
             List<Product> list = product.list();
@@ -112,7 +115,7 @@ public class loginController {
         return model;
     }
     @RequestMapping("/registerForm")
-    public ModelAndView registerForm(HttpServletRequest rq, ModelAndView model){
+    public ModelAndView registerForm(HttpServletRequest rq, ModelAndView model) throws UnsupportedEncodingException{
         account a = checkCookie(rq);
         if(a != null){
             List<Product> list = product.list();
@@ -177,7 +180,7 @@ public class loginController {
                                 Cookie ckID = new Cookie("userID", String.valueOf(a.getId()));
                                 ckID.setMaxAge(3600);
                                 response.addCookie(ckID);
-                                Cookie ckFname = new Cookie("fullname", String.valueOf(a.getFname()));
+                                Cookie ckFname = new Cookie("fullname", URLEncoder.encode(a.getFname(), "UTF-8"));
                                 ckFname.setMaxAge(3600);
                                 response.addCookie(ckFname);
                                 String login = null;
@@ -196,7 +199,7 @@ public class loginController {
                         System.out.println("Error Register login");
                     }
                 }
-            return "index";
+            return "redirect:/index";
 	}
     @RequestMapping(method = RequestMethod.GET)
     public String index() {
@@ -204,7 +207,7 @@ public class loginController {
     }
     
     @RequestMapping(value = "login", method = RequestMethod.GET)
-	public String login(ModelMap modelMap, HttpSession session, HttpServletRequest request) {
+	public String login(ModelMap modelMap, HttpSession session, HttpServletRequest request) throws UnsupportedEncodingException {
 		account account = checkCookie(request);
 		if (account == null) {
 			return "redirect:/index";
@@ -235,7 +238,7 @@ public class loginController {
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(@ModelAttribute(value = "account") account account, ModelMap modelMap, HttpSession session, 
-                HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "idP", required=false) Integer idP ) {
+                HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "idP", required=false) Integer idP ) throws UnsupportedEncodingException {
 		account a = acc.login(account);
 		if(a != null){
                         if (a.getUname()!= null && a.getPass()!=null) {
@@ -250,7 +253,7 @@ public class loginController {
                             Cookie ckID = new Cookie("userID", String.valueOf(a.getId()));
                             ckID.setMaxAge(3600);
                             response.addCookie(ckID);
-                            Cookie ckFname = new Cookie("fullname", String.valueOf(a.getFname()));
+                            Cookie ckFname = new Cookie("fullname", URLEncoder.encode(a.getFname(), "UTF-8"));
                             ckFname.setMaxAge(3600);
                             response.addCookie(ckFname);
                             
@@ -343,7 +346,7 @@ public class loginController {
 //        }
 
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
-	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 		// Remove session
 //		session.removeAttribute("username");
 		// Remove cookie
@@ -360,11 +363,15 @@ public class loginController {
 				cookie.setMaxAge(0);
 				response.addCookie(cookie);
 			}
+                        if (URLDecoder.decode(cookie.getName(), "UTF-8").equalsIgnoreCase("fullname")) {
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+			}
 		}
 		return "redirect:/index";
 	}
 
-	public account checkCookie(HttpServletRequest request) {
+	public account checkCookie(HttpServletRequest request) throws UnsupportedEncodingException {
 		Cookie[] cookies = request.getCookies();
 		account account = null;
 		String username = "", password = "", fullname="";
@@ -382,8 +389,8 @@ public class loginController {
                         if (cookie.getName().equalsIgnoreCase("userID")) {
 				userID = cookie.getValue();
 			}
-                        if (cookie.getName().equalsIgnoreCase("fullname")) {
-				fullname = cookie.getValue();
+                        if (URLDecoder.decode(cookie.getName(), "UTF-8").equalsIgnoreCase("fullname")) {
+				fullname = URLDecoder.decode(cookie.getName(), "UTF-8");
 			}
 		}
 		if (!username.isEmpty() && !password.isEmpty()) {
