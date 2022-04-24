@@ -100,13 +100,12 @@ public class productDAOImp implements productDAO {
                 }
                 return 1;
             }
-        };
+        }
         return 0;
     }
 
     @Override
     public int update(Product p) {
-        System.out.println("Join update");
         String sql = "update product set name=?, price=?, release_date=?, detail=?, genre=? where product_id=?";
         return jt.update(sql, p.getName(), p.getPrice(), p.getReleaseDate(), p.getDetail(), p.getGenre(), p.getProduct_id());
     }

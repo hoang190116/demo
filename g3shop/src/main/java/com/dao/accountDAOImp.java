@@ -36,8 +36,12 @@ public class accountDAOImp implements accountDAO{
 
     @Override
     public int save(account a) {
+        if(!a.getUname().contains(" ") && !a.getPass().contains(" ")){
         String sql = "insert into account(fullname, username, password, date_of_bird, phone, email, role) values(?,?,HASHBYTES('SHA1','"+a.getPass()+"'),?,?,?,?)";
         return jt.update(sql, a.getFname(), a.getUname(), a.getDate_of_bird(), a.getPhone(), a.getEmail(), a.getRole());
+        }else{
+            return 0;
+        }
     }
     @Override
     public int register(account a) {

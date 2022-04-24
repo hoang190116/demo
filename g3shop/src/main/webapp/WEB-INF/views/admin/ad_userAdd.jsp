@@ -132,6 +132,11 @@ input[type=number] {
                                                 }
                                             }
                                         });
+                                    }else{
+                                        $('#result4').html("");
+                                        $('#result3').html("<span class='d-flex flex-row align-items-center mb-4'>Empty Password</span>");
+                                        deniButton();
+                                        pass = false;
                                     }
                                 });
                                 $('#writeName').change(function(){
@@ -156,6 +161,11 @@ input[type=number] {
                                                 }
                                             }
                                         });
+                                    }else{
+                                        $('#result2').html("");
+                                        $('#result').html("<span class='d-flex flex-row align-items-center mb-4'>Empty Username!!</span>");
+                                        deniButton();
+                                        username = false;
                                     }
                                 }); 
                             });

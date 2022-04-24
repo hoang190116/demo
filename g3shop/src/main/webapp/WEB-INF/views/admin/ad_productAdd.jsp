@@ -43,7 +43,7 @@ input[type=number] {
                                     <div class="col-lg-6">
                                         <div class="input-group input-group-outline" style="margin-bottom: 10px">
                                             <label class="input-group" for="input-nameproduct"> Name Product</label>
-                                            <form:input path="name" id="writeName" required="a" class="form-control rounded" maxlength="100" minlength="5" onkeypress="return event.charCode != 32"/>
+                                            <form:input path="name" id="writeName" required="a" class="form-control rounded" maxlength="100" minlength="5" />
                                             
                                         </div>
                                             <div id="result2" style="color: green; margin-bottom: 25px"></div>
@@ -175,7 +175,7 @@ input[type=number] {
                                         $.ajax({
                                             type:'POST',
                                             data:{writeName:name},
-                                            url:'pnameCheck',
+                                            url:'${pageContext.request.contextPath }/adm/pnameCheck',
                                             success:function(result){
                                                 if(result == 1){
                                                     $('#result2').html("");
@@ -189,6 +189,8 @@ input[type=number] {
                                             }
                                         });
                                     }else{
+                                        $('#result2').html("");
+                                        $('#result').html("Empty Product Name!!");
                                         deniButton();
                                     }
                                 });  

@@ -190,15 +190,11 @@ public class adminController {
     //==========================================================================Check Unique Name
     @RequestMapping("/pnameCheck")
     @ResponseBody
-    public void checkName(@RequestParam("writeName") String name, HttpServletResponse response) throws IOException{
-        if(!name.contains(" ")){
-            boolean a = product.selectProductName(name);
-            if(a){
-                response.getWriter().println(1);
-            }else{
-                response.getWriter().println(0);
-            }
-        }else{
+    public void checkName(@RequestParam("writeName") String name, HttpServletResponse response) throws IOException {
+        boolean a = product.selectProductName(name);
+        if (a) {
+            response.getWriter().println(1);
+        } else {
             response.getWriter().println(0);
         }
     }

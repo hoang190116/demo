@@ -138,6 +138,8 @@ input[type=number] {
                                             });
                                         }
                                     }else{
+                                        $('#result2').html("");
+                                        $('#result').html("<span class='d-flex flex-row align-items-center mb-4'>Empty Username!!</span>");
                                         username = false;
                                         deniButton();
                                     }

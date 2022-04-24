@@ -80,7 +80,7 @@ input[type=number] {
                                     <div class="col-lg-6">
                                         <div class="input-group input-group-outline" style="margin-bottom: 10px">
                                             <label class="input-group" for="input-nameproduct"> Name Product</label>
-                                            <form:input path="name" id="writeName" required="a" class="form-control rounded" maxlength="100" minlength="5" onkeypress="return event.charCode != 32"/>
+                                            <form:input path="name" id="writeName" required="a" class="form-control rounded" maxlength="100" minlength="5" />
                                             
                                         </div>
                                             <div id="result2" style="color: green; margin-bottom: 25px"></div>
@@ -284,25 +284,33 @@ input[type=number] {
                 $(document).ready(function(){
                                 $('#writeName').change(function(){
                                    var name = $('#writeName').val();
-                                   if(name){
-                                        $.ajax({
-                                            type:'POST',
-                                            data:{writeName:name},
-                                            url:'${pageContext.request.contextPath }/adm/pnameCheck',
-                                            success:function(result){
-                                                if(result == 1){
-                                                    $('#result2').html("");
-                                                    $('#result').html("This Product Name Already Existed!!!");
-                                                    deniButton();
-                                                }else{
-                                                    $('#result').html("");
-                                                    $('#result2').html("Available Product Name!");
-                                                    allowButton();
-                                                }
-                                            }
-                                        });
-                                    }else{
-                                        deniButton();
+                                   if(name === "${p.name}"){
+                                       $('#result').html("");
+                                        $('#result2').html("");
+                                        allowButton();
+                                   }else{
+                                        if(name){
+                                             $.ajax({
+                                                 type:'POST',
+                                                 data:{writeName:name},
+                                                 url:'${pageContext.request.contextPath }/adm/pnameCheck',
+                                                 success:function(result){
+                                                     if(result == 1){
+                                                         $('#result2').html("");
+                                                         $('#result').html("This Product Name Already Existed!!!");
+                                                         deniButton();
+                                                     }else{
+                                                         $('#result').html("");
+                                                         $('#result2').html("Available Product Name!");
+                                                         allowButton();
+                                                     }
+                                                 }
+                                             });
+                                         }else{
+                                             $('#result2').html("");
+                                             $('#result').html("Empty Product Name!!");
+                                             deniButton();
+                                         }
                                     }
                                 });  
                             });
