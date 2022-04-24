@@ -19,7 +19,7 @@ Cut the "img" folder to your apache/bin -> for mine is: "D:\Tomcat\apache-tomcat
 
 Open Netbean 12 -> Open Project nat navbar -> choose g3shop -> Right Click on project and choose Clean and Build
 ---If you dont have apache server already yet -> system will need you choose it. Go window in navbar -> choose services -> click services tab -> right click on Server then add server for apache (direct to "apache-tomcat-9.0.54" folder)
----If build fail, maybe project cannot link jdk 8. So you choo Properties again -> Tab build - Complie -> Java Paltform -> Select JDK8 or Click Manage Java Platforms if you dont link folder jdk have installed yet
+---If build fail, maybe project cannot link jdk 8. So you choose Properties again -> Tab build - Complie -> Java Paltform -> Select JDK8 or Click Manage Java Platforms if you dont link folder jdk have installed yet
 
 For Database Connection:
 Open g3shop project tab -> Source Pakages -> com.config -> SpringMvcConfig.java -> Look at getData() method ->
