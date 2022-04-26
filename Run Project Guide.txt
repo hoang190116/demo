@@ -6,7 +6,7 @@ Remmember to open account "sa" of your database server - set Username=sa and Pas
 
 Right Click on Database Name -> Properties -> Security -> Tick on "SQL Server and Windows Authentication Mode" -> Click OK.
 Let Test: Click Disconnect database with icon above Databse Server. Let click incon connect -> Choose Sever Name -> At Authenciation: Choose SQL Server Authenciation -> Username: sa - Password: sa -> Login
-If login fail, maybe some step wrong, you can choose Authenciation to Windown Authenciation for config database again. 
+If login fail, maybe some step wrong, you can choose Authenciation to Windown Authenciation for config database again. Or try Restart DB: Right Click on Database Name -> Restart 
 
 Remmember to open port 1433 from "SQL 2019 Configuration Manager" tool, go there and enable anything from Client Proctocols -> then restart your SQL server(MSSQL...) at SQL Server Services tab
 
@@ -19,14 +19,13 @@ Cut the "img" folder to your apache/bin -> for mine is: "D:\Tomcat\apache-tomcat
 
 Open Netbean 12 -> Open Project nat navbar -> choose g3shop -> Right Click on project and choose Clean and Build
 ---If you dont have apache server already yet -> system will need you choose it. Go window in navbar -> choose services -> click services tab -> right click on Server then add server for apache (direct to "apache-tomcat-9.0.54" folder)
----If build fail, maybe project cannot link jdk 8. So you choose Properties again -> Tab build - Complie -> Java Paltform -> Select JDK8 or Click Manage Java Platforms if you dont link folder jdk have installed yet
+---If build fail, maybe project cannot link jdk 8. So you choose Properties again -> Tab build - Complie -> Java Paltform -> Select JDK8 or "Click Manage Java Platforms" button if you dont link jdk folder yet
 
 For Database Connection:
 Open g3shop project tab -> Source Pakages -> com.config -> SpringMvcConfig.java -> Look at getData() method ->
 -dt.setUrl("jdbc:sqlserver://ADMIN:1433;databaseName=g3shop"); ---("ADMIN" is DB Server Name; if ur DB name is different, change it to "//HOANG:1433" for example)
 -dt.setUsername("sa"); ---(Here is where i told you open account sa at Step 1, this is username)
 -dt.setPassword("sa"); ---(Here is password of sa account)
-
 
 After finish build -> Right click on Project -> Choose Properties -> Choose Run -> then select your browser to run website
 
