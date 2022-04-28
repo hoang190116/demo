@@ -186,33 +186,33 @@
                                         <img style="border-radius: 50%; height: 60px; width: 60px; object-fit: contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtj_sjTE-ysDaNvfV3aNpRE1m2bPYzYC9ALg&usqp=CAU" alt="" class="img-circle">
                                     </a>
                                 </div>
-                            <div class="media-body">
+                <div class="media-body">
                     <span class="text-muted pull-right">
-                <small class="text-muted">${cmt.timeAgo}</small>
-        </span>
-        <strong class="text-success">&nbsp;&nbsp;${cmt.fname}</strong>
-                <div style="margin-left: 80px;" class="show-read-more">${cmt.commen}</div>
-                    </div>
+                        <span class="">${cmt.timeAgo}</span>
+                    </span>
+                    <strong class="text-success">&nbsp;&nbsp;${cmt.fname}</strong>
+                    <div style="margin-left: 80px;" class="show-read-more">${cmt.commen}</div>
+                </div>
                         </li>
                         </c:forEach>
                             <!-- JS for read more -->
                                                                 <script type="text/javascript">
                                                                     $(document).ready(function(){
-                                                                    var maxLength = 200;
-                                                                            $(".show-read-more").each(function(){
-                                                                    var myStr = $(this).text();
-                                                                            if (myStr.length > maxLength){
-                                                                    var newStr = myStr.substring(0, maxLength);
-                                                                            var removedStr = myStr.substring(maxLength, $(this).text().length);
-                                                                            $(this).empty().html(newStr);
-                                                                            $(this).append(' <a href="javascript:void(0);" class="read-more">Read more...</a>');
-                                                                            $(this).append('<span class="more-text" style="display: none">' + removedStr + '</span>');
-                                                                    }
-                                                                    });
-                                                                            $(".read-more").click(function(){
-                                                                    $(this).siblings(".more-text").contents().unwrap();
-                                                                            $(this).remove();
-                                                                    });
+                                                                        var maxLength = 100;
+                                                                        $(".show-read-more").each(function(){
+                                                                        var myStr = $(this).text();
+                                                                        if (myStr.length > maxLength){
+                                                                                var newStr = myStr.substring(0, maxLength);
+                                                                                var removedStr = myStr.substring(maxLength, $(this).text().length);
+                                                                                $(this).empty().html(newStr);
+                                                                                $(this).append('<a href="javascript:void(0);" class="read-more">Read more...</a>');
+                                                                                $(this).append('<span class="more-text" style="display: none;">'+removedStr+'</span>');
+                                                                        }
+                                                                        });
+                                                                        $(".read-more").click(function(){
+                                                                                    $(this).siblings(".more-text").contents().unwrap();
+                                                                                    $(this).remove();
+                                                                        });
                                                                     });
                                                                                             </script>
                                                                                             </ul>
