@@ -31,5 +31,14 @@ After finish build -> Right click on Project -> Choose Properties -> Choose Run 
 
 Now Right click on project and Run it.
 
+======
+Admin account
+-username: admin
+-password: admin
+
+Employee account
+-username: employee
+-username: admin@123A
+
 ======================
 Good Luck
