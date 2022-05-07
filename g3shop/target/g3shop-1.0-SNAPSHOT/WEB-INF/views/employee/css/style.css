@@ -41,3 +41,16 @@ body{
          max-width: 216px
      }
  }
+ 
+ .overflow-ellipsis {
+    width: 200px;
+  
+
+  /* Both of the following are required for text-overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-title]:hover::before {content: attr(data-title); position: absolute; padding: 5px; background: #262626; 
+          border-radius: 15px; color: white; font-size: 14px; margin-top: 20px; margin-left: 80px;max-width: 13em; white-space: normal;}

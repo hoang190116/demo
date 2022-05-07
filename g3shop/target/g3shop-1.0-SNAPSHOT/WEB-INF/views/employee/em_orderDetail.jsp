@@ -75,7 +75,7 @@
                         <div class="col-lg-5">
                             <div class="card h-100">
                                 <div class="card-header pb-0">
-                                    <h6>Customer</h6>
+                                    <h6 align="center">Customer Information</h6>
                                     <!-- <p class="text-sm">
                                         <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
                                         <span class="font-weight-bold">24%</span> this month

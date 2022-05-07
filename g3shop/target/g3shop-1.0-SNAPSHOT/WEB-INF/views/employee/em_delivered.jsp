@@ -20,7 +20,7 @@
                 <h5 class="note-title text-truncate w-75 mb-0">Order ID: ${o.bill_id}<i class="point fa fa-circle ml-1 font-10" style='color:#33f8ff'></i></h5>
                 <p class="note-date font-12 text-muted">Order Date: ${o.dateString}</p>
                 <div class="note-content">
-                    <p class="note-inner-content text-muted">Customer Name: ${o.fname}</p>
+                    <p class="note-inner-content text-muted overflow-ellipsis" data-title="${o.fname}">Customer Name: ${o.fname}</p>
                 </div>
                 <div class="note-content">
                     <p class="note-inner-content text-muted">Method: ${o.pay_type}</p>

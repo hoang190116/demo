@@ -48,13 +48,13 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item ">
-                        <a class="page-link" href="#" >Previous</a>
+                        <a class="page-link" href="<c:if test="${currentP > 1}">${pageContext.request.contextPath }/searchProduct/${currentP - 1}?search=${searchName}</c:if>" >Previous</a>
                     </li>
                     <c:forEach var="i" begin="1" end="${countP}">
-                        <li class="page-item <c:if test="${currentP == i}">active</c:if>"><a class="page-link" href="${i}">${i}</a></li>
+                        <li class="page-item <c:if test="${currentP == i}">active</c:if>"><a class="page-link" href="${pageContext.request.contextPath }/searchProduct/${i}?search=${searchName}">${i}</a></li>
                         </c:forEach>
                     <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
+                        <a class="page-link" href="<c:if test="${currentP < countP}">${pageContext.request.contextPath }/searchProduct/${currentP + 1}?search=${searchName}</c:if>">Next</a>
                     </li>
                 </ul>
             </nav>

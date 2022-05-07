@@ -1179,7 +1179,7 @@ body{
   text-align: center; }
 
 .overflow-ellipsis {
-    width: 150px;
+  width: 150px;
   padding: 2px 5px;
 
   /* Both of the following are required for text-overflow */

@@ -24,7 +24,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <h5 >
-                                    <p class="small"> <a type= "submit" href="productView?id=${p.product_id}"class="text-dark overflow-ellipsis" data-title="${p.name}">${p.name}</a>
+                                    <p class="small"> <a type= "submit" href="productView?id=${p.product_id}" class="text-dark overflow-ellipsis" data-title="${p.name}">${p.name}</a>
 
                                 </h5>
 
@@ -50,7 +50,7 @@
     <div class="container py-4">
         <div class="row">
             <div>
-                <h4>Product  <a href="view2/1" type="button" class="pull-right text-muted"> More ...</a></h4>
+                <h4>Product  <a href="view/1" type="button" class="pull-right text-muted"> More ...</a></h4>
                
             </div>
             
