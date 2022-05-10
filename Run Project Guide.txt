@@ -1,3 +1,8 @@
+Tool: Netbean version 12 and JDK 8
+Web Server: Apache Tomcat 9
+Database: MS SQL 2019 and Microsoft SQL Manager Studio 18
+
+=============== Step 1: Database
 For Database, Use Microsoft SQL Manager Studio 18 -> Create a new databse with name "g3shop"; Make sure you have Database Server already!! "And you should let Database Server name is ADMIN"
 -> then go to File at navbar -> open -> File -> Choose G3scriptUpdateFinale.sql -> Run file (F5) or use "Execute" button at navbar
 
@@ -5,12 +10,12 @@ Remmember to open account "sa" of your database server - set Username=sa and Pas
 (Manage account at "Security folder" of DB server -> Logins -> Right click on "sa" account -> Properties -> Change password to "sa" at general tab -> next go Status tab -> tick on "Enable" radio of Login -> Then OK)
 
 Right Click on Database Name -> Properties -> Security -> Tick on "SQL Server and Windows Authentication Mode" -> Click OK.
-Let Test: Click Disconnect database with icon above Databse Server. Let click incon connect -> Choose Sever Name -> At Authenciation: Choose SQL Server Authenciation -> Username: sa - Password: sa -> Login
+Let Test: Click Disconnect database with icon above Databse Server. Let click on connect icon -> Choose Sever Name -> At Authenciation: Choose SQL Server Authenciation -> Username: sa - Password: sa -> Login
 If login fail, maybe some step wrong, you can choose Authenciation to Windown Authenciation for config database again. Or try Restart DB: Right Click on Database Name -> Restart 
 
 Remmember to open port 1433 from "SQL 2019 Configuration Manager" tool, go there and enable anything from Client Proctocols -> then restart your SQL server(MSSQL...) at SQL Server Services tab
 
-===========================================================
+============== Step 2: Run code
 For Code,
 First Remmber to install Apache Tomcat 9
 Remmember to install JDK 8
@@ -32,11 +37,11 @@ After finish build -> Right click on Project -> Choose Properties -> Choose Run 
 Now Right click on project and Run it.
 
 ======
-Admin account
+Admin website account
 -username: admin
 -password: admin
 
-Employee account
+Employee website account
 -username: employee
 -username: admin@123A
 
